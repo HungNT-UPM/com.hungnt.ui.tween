@@ -1,12 +1,10 @@
 {
-    "name": "HungNT.UI.Tween",
-    "rootNamespace": "HungNT.UI.Tween",
-    "references": [
-        "HungNT.UI",
-        "UniTask",
-        "UniTask.DOTween"
+    "name": "HungNT.UI.Tween.Editor",
+    "rootNamespace": "HungNT.UI.Tween.Editor",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
     ],
-    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

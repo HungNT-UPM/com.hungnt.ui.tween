@@ -1,8 +1,10 @@
 # HungNT UI Tween (`com.hungnt.ui.tween`)
 
-Component UI show/hide dùng **DOTween** + **UniTask**, cấu hình qua **TweenPreset** ScriptableObject và Unity Preset.
+Component UI show/hide dùng **DOTween** + **UniTask**, cấu hình qua **TweenPreset** ScriptableObject.
 
 Phụ thuộc **`com.hungnt.ui`** (`UIViewBase`).
+
+Package tự thêm scripting define **`UNITASK_DOTWEEN_SUPPORT`** cho mọi build target khi mở Editor (script `UITweenDefineSetup`). Không cần cấu hình tay.
 
 ## Components
 
@@ -26,8 +28,6 @@ Preset mặc định load từ `Resources/Tween/TweenPreset_*` khi `Reset()` ho�
 - `Tween/TweenPreset_Move`
 - `Tween/TweenPreset_Scale`
 - `Tween/TweenPreset_Rotate`
-
-Unity Preset trong `Presets/` (`HungNT_UITween*`) apply nhanh lên component tương ứng.
 
 ## Stagger delay (sequence show)
 
