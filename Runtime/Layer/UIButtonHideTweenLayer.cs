@@ -4,19 +4,19 @@ using UnityEngine.UI;
 namespace HungNT.UI.UITween
 {
     /// <summary>
-    /// Nút đóng: gọi <see cref="UILayerTween.HideTween"/> theo hành vi đã cấu hình trên layer.
+    /// Nút đóng: gọi <see cref="UITweenLayer.HideTween"/> theo hành vi đã cấu hình trên layer.
     /// </summary>
     [RequireComponent(typeof(Button))]
-    public class UIButtonHideLayerTween : MonoBehaviour
+    public class UIButtonHideTweenLayer : MonoBehaviour
     {
         [SerializeField]
-        private UILayerTween _layerTween;
+        private UITweenLayer _layerTween;
 
         private Button _button;
 
         private void Reset()
         {
-            _layerTween = GetComponentInParent<UILayerTween>();
+            _layerTween = GetComponentInParent<UITweenLayer>();
         }
 
         private void Awake()
@@ -42,12 +42,12 @@ namespace HungNT.UI.UITween
             ResolveLayerTween()?.HideTween();
         }
 
-        private UILayerTween ResolveLayerTween()
+        private UITweenLayer ResolveLayerTween()
         {
             if (_layerTween != null)
                 return _layerTween;
 
-            _layerTween = GetComponentInParent<UILayerTween>();
+            _layerTween = GetComponentInParent<UITweenLayer>();
             return _layerTween;
         }
     }

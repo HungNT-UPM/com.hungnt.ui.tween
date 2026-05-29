@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace HungNT.UI.UITween
@@ -9,25 +10,23 @@ namespace HungNT.UI.UITween
     /// <summary>
     /// Điều phối hide tween trên các <see cref="UITweenBase"/> con có <see cref="UITweenBase.HasHideTween"/>.
     /// </summary>
-    public class UILayerTween : UIViewBase
+    public class UITweenLayer : UIViewBase
     {
-        [SerializeField]
-        private bool _includeInactiveTweens;
-
+        [Title("Layer")]
         [SerializeField]
         private GameObject _hideTarget;
 
         [SerializeField]
-        private UILayerTweenHideBehaviour _hideBehaviour;
-
-        // [SerializeField]
-        // private UnityEvent _onHideTweenCompleted;
+        private UITweenLayerHideBehaviour _hideBehaviour;
 
         public bool IsHideTweening { get; private set; }
 
         private void Reset()
         {
-            _hideTarget = gameObject;
+            if (_hideTarget == null)
+            {
+                _hideTarget = gameObject;
+            }
         }
 
         private void OnEnable()
@@ -104,13 +103,13 @@ namespace HungNT.UI.UITween
 
         protected virtual IReadOnlyList<UITweenBase> CollectActiveTweens()
         {
-            UITweenBase[] tweens = GetComponentsInChildren<UITweenBase>(_includeInactiveTweens);
+            UITweenBase[] tweens = GetComponentsInChildren<UITweenBase>(includeInactive: false);
             var activeTweens = new List<UITweenBase>(tweens.Length);
 
             for (int i = 0; i < tweens.Length; i++)
             {
                 UITweenBase tween = tweens[i];
-                if (tween != null && tween.gameObject.activeInHierarchy)
+                if (tween != null && tween.gameObject.activeInHierarchy && tween.enabled)
                     activeTweens.Add(tween);
             }
 
@@ -121,10 +120,10 @@ namespace HungNT.UI.UITween
         {
             switch (_hideBehaviour)
             {
-                case UILayerTweenHideBehaviour.DisableTarget:
+                case UITweenLayerHideBehaviour.DisableTarget:
                     ResolveHideTarget()?.SetActive(false);
                     break;
-                case UILayerTweenHideBehaviour.DestroyTarget:
+                case UITweenLayerHideBehaviour.DestroyTarget:
                     GameObject target = ResolveHideTarget();
                     if (target != null)
                         Destroy(target);
