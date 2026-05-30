@@ -6,7 +6,7 @@ using UnityEngine;
 namespace HungNT.UI.UITween
 {
     /// <summary>
-    /// Wrapper DOTween UI — package UPM không reference DOTweenModuleUI.
+    /// Wrapper DOTween UI - package UPM không reference DOTweenModuleUI.
     /// </summary>
     internal static class UITweenShortcuts
     {
@@ -19,6 +19,12 @@ namespace HungNT.UI.UITween
         public static TweenerCore<Vector2, Vector2, VectorOptions> AnchorPos(RectTransform target, Vector2 endValue, float duration)
         {
             return DOTween.To(() => target.anchoredPosition, x => target.anchoredPosition = x, endValue, duration)
+                .SetTarget(target);
+        }
+
+        public static TweenerCore<Vector2, Vector2, VectorOptions> SizeDelta(RectTransform target, Vector2 endValue, float duration)
+        {
+            return DOTween.To(() => target.sizeDelta, x => target.sizeDelta = x, endValue, duration)
                 .SetTarget(target);
         }
     }

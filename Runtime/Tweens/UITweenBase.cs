@@ -115,7 +115,15 @@ namespace HungNT.UI.UITween
         {
             _hasHideTween = false;
             _hideTweenConfig = null;
-            _showTweenConfig = TweenConfigLoader.LoadOrCreateShow(ConfigTypeName);
+            EnsureShowConfig();
+        }
+
+        protected virtual void OnValidate()
+        {
+            EnsureShowConfig();
+            
+            if (_hasHideTween)
+                EnsureHideConfig();
         }
 
         protected virtual void Awake()

@@ -21,7 +21,7 @@ namespace HungNT.UI.UITween
 
         public bool IsHideTweening { get; private set; }
 
-        private void Reset()
+        protected virtual void OnValidate()
         {
             if (_hideTarget == null)
             {
@@ -29,7 +29,7 @@ namespace HungNT.UI.UITween
             }
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             IsHideTweening = false;
         }
@@ -62,7 +62,6 @@ namespace HungNT.UI.UITween
             try
             {
                 await HideChildTweensAsync(token);
-                // _onHideTweenCompleted?.Invoke();
                 extra?.Invoke();
                 ApplyHideTweenBehaviour();
             }
@@ -75,13 +74,11 @@ namespace HungNT.UI.UITween
         /// <summary>
         /// Chạy Hide trên mỗi UITweenBase con đang active và có HasHideTween.
         /// </summary>
-        public async UniTask HideChildTweensAsync(CancellationToken token = default)
+        private async UniTask HideChildTweensAsync(CancellationToken token = default)
         {
             IReadOnlyList<UITweenBase> tweens = CollectActiveTweens();
             if (tweens.Count == 0)
                 return;
-
-            Interactable = false;
 
             var hideTasks = new List<UniTask>();
 
@@ -96,12 +93,12 @@ namespace HungNT.UI.UITween
                 await UniTask.WhenAll(hideTasks);
         }
 
-        public GameObject ResolveHideTarget()
+        private GameObject ResolveHideTarget()
         {
             return _hideTarget != null ? _hideTarget : gameObject;
         }
 
-        protected virtual IReadOnlyList<UITweenBase> CollectActiveTweens()
+        private IReadOnlyList<UITweenBase> CollectActiveTweens()
         {
             UITweenBase[] tweens = GetComponentsInChildren<UITweenBase>(includeInactive: false);
             var activeTweens = new List<UITweenBase>(tweens.Length);
