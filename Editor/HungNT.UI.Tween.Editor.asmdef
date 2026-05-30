@@ -1,7 +1,9 @@
-{
+﻿{
     "name": "HungNT.UI.Tween.Editor",
-    "rootNamespace": "HungNT.UI.Tween.Editor",
-    "references": [],
+    "rootNamespace": "HungNT.UI.UITween.Editor",
+    "references": [
+        "HungNT.UI.Tween"
+    ],
     "includePlatforms": [
         "Editor"
     ],

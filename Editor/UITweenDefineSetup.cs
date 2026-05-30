@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.Build;
 
-namespace HungNT.UI.Tween.Editor
+namespace HungNT.UI.UITween.Editor
 {
     [InitializeOnLoad]
     static class UITweenDefineSetup

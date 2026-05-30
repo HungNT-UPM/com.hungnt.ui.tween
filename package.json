@@ -1,8 +1,8 @@
-{
+﻿{
   "name": "com.hungnt.ui.tween",
-  "version": "1.0.1",
-  "displayName": "com.hungnt.ui.tween",
-  "description": "UI show/hide tweens (HungNT.UI.Tween): UITweenBase + DOTween + UniTask, TweenPreset, stagger delay helpers.",
+  "version": "2.0.0",
+  "displayName": "HungNT UI Tween",
+  "description": "UI show/hide tweens: UITweenBase, TweenConfig, UITweenLayer, UITweenSize and stagger delay helpers.",
   "unity": "2022.3",
   "dependencies": {
     "com.hungnt.ui": "1.0.0",
@@ -12,5 +12,9 @@
     "name": "HungNT",
     "url": "https://github.com/HungNT-UPM"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HungNT-UPM/com.hungnt.ui.tween.git"
+  }
 }
