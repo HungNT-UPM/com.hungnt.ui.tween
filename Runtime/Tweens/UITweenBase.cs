@@ -11,30 +11,39 @@ namespace HungNT.UI.UITween
     {
         #region Show
         [TabGroup("Tween", "Show")]
+        [SerializeField]
+        private bool _hasShowTween = true;
+
+        [TabGroup("Tween", "Show")]
+        [ShowIf(nameof(_hasShowTween))]
         [InlineEditor, InlineButton(nameof(EnsureShowConfig), "Ensure")]
         [SerializeField]
         private TweenConfig _showTweenConfig;
 
         [TabGroup("Tween", "Show")]
+        [ShowIf(nameof(_hasShowTween))]
         [SerializeField]
         private bool _overrideShowDuration;
 
         [TabGroup("Tween", "Show")]
+        [ShowIf(nameof(_hasShowTween))]
         [ShowIf(nameof(_overrideShowDuration))]
         [SerializeField]
         private float _overrideShowDurationValue = 0.25f;
 
         [TabGroup("Tween", "Show")]
+        [ShowIf(nameof(_hasShowTween))]
         [SerializeField]
         private bool _overrideShowEase;
 
         [TabGroup("Tween", "Show")]
+        [ShowIf(nameof(_hasShowTween))]
         [ShowIf(nameof(_overrideShowEase))]
         [SerializeField]
         private Ease _overrideShowEaseValue = Ease.Linear;
 
         [TabGroup("Tween", "Show")]
-        [LabelText("Delay Show")]
+        [ShowIf(nameof(_hasShowTween))]
         [SerializeField]
         private float _delayShow;
         #endregion
@@ -42,7 +51,7 @@ namespace HungNT.UI.UITween
         #region Hide
         [TabGroup("Tween", "Hide")]
         [SerializeField]
-        private bool _hasHideTween;
+        private bool _hasHideTween = true;
 
         [TabGroup("Tween", "Hide")]
         [ShowIf(nameof(_hasHideTween))]
@@ -74,7 +83,6 @@ namespace HungNT.UI.UITween
 
         [TabGroup("Tween", "Hide")]
         [ShowIf(nameof(_hasHideTween))]
-        [LabelText("Delay Hide")]
         [SerializeField]
         private float _delayHide;
         #endregion
@@ -113,17 +121,8 @@ namespace HungNT.UI.UITween
 
         protected virtual void Reset()
         {
-            _hasHideTween = false;
-            _hideTweenConfig = null;
             EnsureShowConfig();
-        }
-
-        protected virtual void OnValidate()
-        {
-            EnsureShowConfig();
-            
-            if (_hasHideTween)
-                EnsureHideConfig();
+            EnsureHideConfig();
         }
 
         protected virtual void Awake()
@@ -133,8 +132,11 @@ namespace HungNT.UI.UITween
 
         private void OnEnable()
         {
-            Inactive();
-            Show(this.GetCancellationTokenOnDestroy()).Forget();
+            if (_hasShowTween)
+            {
+                Inactive();
+                Show(this.GetCancellationTokenOnDestroy()).Forget();
+            }
         }
 
         private void OnDisable()
@@ -144,8 +146,11 @@ namespace HungNT.UI.UITween
 
         public virtual void Init()
         {
-            if (_showTweenConfig == null)
+            if (_hasShowTween)
                 EnsureShowConfig();
+
+            if (_hasHideTween)
+                EnsureHideConfig();
         }
 
         protected void EnsureShowConfig()
