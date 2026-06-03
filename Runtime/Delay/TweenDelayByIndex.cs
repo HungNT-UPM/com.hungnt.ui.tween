@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HungNT.UI.UITween
+namespace HungNT.UI.Tween
 {
     /// <summary>
     /// Slot trong chuỗi stagger — Awake báo control cha tính lại delay.

@@ -1,6 +1,6 @@
 ﻿{
     "name": "HungNT.UI.Tween",
-    "rootNamespace": "HungNT.UI.UITween",
+    "rootNamespace": "HungNT.UI.Tween",
     "references": [
         "HungNT.UI",
         "UniTask",

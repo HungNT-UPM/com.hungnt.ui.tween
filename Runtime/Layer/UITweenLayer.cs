@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace HungNT.UI.UITween
+namespace HungNT.UI.Tween
 {
     /// <summary>
     /// Điều phối hide tween trên các <see cref="UITweenBase"/> con có <see cref="UITweenBase.HasHideTween"/>.

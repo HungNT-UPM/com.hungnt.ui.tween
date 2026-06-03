@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HungNT.UI.UITween
+namespace HungNT.UI.Tween
 {
     /// <summary>
     /// Gán delay show tăng dần cho từng TweenDelayByIndex con theo thứ tự hierarchy.

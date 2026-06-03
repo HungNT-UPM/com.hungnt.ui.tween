@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace HungNT.UI.UITween
+namespace HungNT.UI.Tween
 {
     /// <summary>
     /// Cấu hình duration và ease một hướng tween. Delay đặt trên UITweenBase.

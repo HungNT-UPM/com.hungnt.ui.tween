@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.Build;
 
-namespace HungNT.UI.UITween.Editor
+namespace HungNT.UI.Tween.Editor
 {
     [InitializeOnLoad]
     static class UITweenDefineSetup

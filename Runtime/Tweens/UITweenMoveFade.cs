@@ -4,7 +4,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace HungNT.UI.UITween
+namespace HungNT.UI.Tween
 {
     public class UITweenMoveFade : UITweenBase
     {

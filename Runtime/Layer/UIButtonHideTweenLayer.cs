@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace HungNT.UI.UITween
+namespace HungNT.UI.Tween
 {
     /// <summary>
     /// Nút đóng: gọi <see cref="UITweenLayer.HideTween"/> theo hành vi đã cấu hình trên layer.

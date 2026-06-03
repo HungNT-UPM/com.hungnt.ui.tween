@@ -1,4 +1,4 @@
-﻿namespace HungNT.UI.UITween
+﻿namespace HungNT.UI.Tween
 {
     /// <summary>
     /// Đường dẫn và quy ước tên asset <see cref="TweenConfig"/> trong project.

@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace HungNT.UI.UITween
+namespace HungNT.UI.Tween
 {
     public abstract class UITweenBase : UIViewBase
     {

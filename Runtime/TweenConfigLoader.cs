@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HungNT.UI.UITween
+namespace HungNT.UI.Tween
 {
     /// <summary>
     /// Load hoặc tạo asset <see cref="TweenConfig"/> trong Assets/Resources/Tween.
