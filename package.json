@@ -1,7 +1,7 @@
 ﻿{
   "name": "com.hungnt.ui.tween",
   "version": "2.2.0",
-  "displayName": "com.hungnt.ui.tween",
+  "displayName": "HungNT UI Tween",
   "description": "UI show/hide tweens: UITweenBase + UITweenPlayer component, TweenPreset (show/hide + AnimationCurve), stagger delay.",
   "unity": "2022.3",
   "dependencies": {
