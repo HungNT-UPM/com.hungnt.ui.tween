@@ -7,7 +7,6 @@
     {
         public const string ProjectConfigFolder = "Assets/Resources/Tween";
         public const string ResourcesLoadRoot = "Tween";
-
         public const string ConfigMenuName = "HungNT/UI/Tween Config";
 
         public static string ConfigResourcePath(string name) => $"{ResourcesLoadRoot}/{name}";

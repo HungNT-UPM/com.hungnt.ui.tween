@@ -7,6 +7,10 @@ using UnityEngine.Events;
 
 namespace HungNT.UI.Tween
 {
+    /// <summary>
+    /// Base cho UI tween: tự play show qua <c>OnEnable</c>, expose <see cref="Show"/>/<see cref="Hide"/> (UniTask)
+    /// với config show/hide riêng (<see cref="TweenConfig"/>). Subclass định nghĩa cách tween cụ thể.
+    /// </summary>
     public abstract class UITweenBase : UIViewBase
     {
         #region Show
